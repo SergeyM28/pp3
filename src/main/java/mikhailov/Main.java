@@ -1,6 +1,5 @@
 package mikhailov;
 
-import javax.sound.midi.Soundbank;
 import java.util.*;
 
 public class Main {
@@ -12,7 +11,7 @@ public class Main {
 
         //Используем созданный ArrayList для создания HashSet
         Set<Integer> numberSet = new HashSet<>(randomNumberList);
-        System.out.println("HeshSet созданный из этого ArrayList: " + numberSet + " имеет длину " + numberSet.size() +
+        System.out.println("HashSet созданный из этого ArrayList: " + numberSet + " имеет длину " + numberSet.size() +
                 " и получится короче, поскольку содержит только уникальные значения");
 
         System.out.println();
@@ -20,7 +19,7 @@ public class Main {
         List<Integer> consecutiveArrayList = generateConsecutiveArrayList(10);
         System.out.println("ArrayList представляющий последовательность целых чисел: " + consecutiveArrayList);
         Set<Integer> consecutiveSet = new HashSet<>(consecutiveArrayList);
-        System.out.println("HeshSet созданный из этого оследовательного ArrayList: " + consecutiveSet);
+        System.out.println("HashSet созданный из этого оследовательного ArrayList: " + consecutiveSet);
         System.out.println("Увеличим количество элементов ");
 
         //Операции на больших коллекциях с замером времени
