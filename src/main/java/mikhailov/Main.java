@@ -67,7 +67,33 @@ public class Main {
         bigConsecutiveHashSet.add(LENGTH + 1);
         endTime = System.currentTimeMillis();
         System.out.println("Time spend: " + (endTime - startTime));
-    }
+
+        //Sorted Set
+        List<Integer> randomArrayList = generateRandomArrayList(30, 100);
+        System.out.println("\nСоздадим ArrayList со случайными целыми числами: " + randomArrayList);
+
+        Set<Integer> tempHashList = new HashSet<>(randomArrayList);
+        System.out.println("Создадим из него HashSet: " + tempHashList);
+        Set<Integer> tempTreeSet = new TreeSet<>(tempHashList);
+        System.out.println("Создадим из него TreeSet: " + tempTreeSet);
+
+        System.out.println("Повторим то же самое, но на большом объеме данных с замером времени");
+
+        List<Integer> randomBigArrayList = generateRandomArrayList(LENGTH/10, LENGTH/10);
+        System.out.println("\nСоздадим ArrayList со случайными целыми числами длиной " + LENGTH/10);
+        System.out.println("Создадим из него HashSet");
+        startTime = System.currentTimeMillis();
+        Set<Integer> bigTempHashList = new HashSet<>(randomBigArrayList);
+        endTime = System.currentTimeMillis();
+        System.out.println("Time spend: " + (endTime - startTime));
+
+        System.out.println("Создадим из него TreeSet");
+        startTime = System.currentTimeMillis();
+        Set<Integer> bigTempTreeSet = new TreeSet<>(randomBigArrayList);
+        endTime = System.currentTimeMillis();
+        System.out.println("Time spend: " + (endTime - startTime));
+        }
+    
 
     static List<Integer> generateArrayList (int size, int maxValue){
         List<Integer> myArrayList = new ArrayList<>(size);
@@ -83,6 +109,15 @@ public class Main {
         int temp = 0;
         while (temp < max){
             myArrayList.add(++temp);
+        }
+        return myArrayList;
+    }
+
+    static List<Integer> generateRandomArrayList (int size, int maxValue){
+        List<Integer> myArrayList = new ArrayList<>(size);
+        Random random = new Random();
+        for (int i = 0; i < size; i++){
+            myArrayList.add(random.nextInt(0, maxValue + 1));
         }
         return myArrayList;
     }
